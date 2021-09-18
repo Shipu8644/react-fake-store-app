@@ -58,15 +58,32 @@ function ExploreProduct() {
   );
 }
 function ProductsElements(props) {
+  const [Count, setCount] = useState(0);
+  const handledecrease = () => setCount(Count - 1);
+  const handleIncrease = () => setCount(Count + 1);
+  const clearValue = () => setCount(0);
+
+  if (Count < 0) {
+    clearValue();
+  }
+  if (Count > 5) {
+    setCount(5);
+  }
   const { Category, Pic, Price, count, rating } = props;
 
   return (
     <div className='singleProductStyle'>
+      <div>
+        <h3>Product Rating: {Count}</h3>
+      </div>
       <h2>Category: {Category}</h2>
       <img style={{ width: '200px' }} src={Pic} alt="" />
       <h3>Price: ${Price}</h3>
       <h3>Rating Count: ${count}</h3>
       <h3>Rating : ${rating}</h3>
+      <button className='inCreDecreButtonStyle' onClick={handleIncrease} >Increase Rating</button>
+      <button className='inCreDecreButtonStyle' onClick={handledecrease}>Decrase Rating</button>
+      <button className='inCreDecreButtonStyle' onClick={clearValue} >All clear</button>
 
     </div>
   );
@@ -74,20 +91,20 @@ function ProductsElements(props) {
 
 
 function Counter() {
-  const [count, setCount] = useState(0);
-  const handledecrease = () => setCount(count - 1);
-  const handleIncrease = () => setCount(count + 1);
-  const clearValue = () => setCount(0);
+  // const [count, setCount] = useState(0);
+  // const handledecrease = () => setCount(count - 1);
+  // const handleIncrease = () => setCount(count + 1);
+  // const clearValue = () => setCount(0);
 
-  if (count < 0) {
-    clearValue();
-  }
+  // if (count < 0) {
+  //   clearValue();
+  // }
   return (
     <div>
-      <h1>Count:{count}</h1>
-      <button className='inCreDecreButtonStyle' onClick={handledecrease}>Decrease</button>
+      <h1 id='add-remove'>Product Count: </h1>
+      {/* <button className='inCreDecreButtonStyle' onClick={handledecrease}>Decrease</button>
       <button className='inCreDecreButtonStyle' onClick={handleIncrease}>Increase</button>
-      <button className='inCreDecreButtonStyle' onClick={clearValue}>Clear</button>
+      <button className='inCreDecreButtonStyle' onClick={clearValue}>Clear</button> */}
 
     </div>
 
