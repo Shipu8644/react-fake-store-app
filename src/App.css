@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+.productStyle{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  margin: 20px;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+.singleProductStyle{
+  border: 3px solid aqua;
+  border-radius: 10px;
+  background-color: blanchedalmond;
+}
